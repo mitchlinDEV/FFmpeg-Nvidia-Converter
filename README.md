@@ -1,6 +1,6 @@
 # FFmpeg-NVIDIA-accelerated Video Converter
 
-This script converts video files to MP4 format using FFmpeg with NVIDIA GPU hardware acceleration.
+This script batch converts video files in Windows to MP4 format using FFmpeg with NVIDIA GPU hardware acceleration.
 
 ## Requirements / Installation
 
