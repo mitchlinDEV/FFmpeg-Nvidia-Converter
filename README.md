@@ -14,7 +14,7 @@ This script batch converts video files in Windows to MP4 format using FFmpeg wit
   
 ## Usage
 
-1. Download the Python script (The repo contains some test files. If the script was downloaded to Windows default Downloads folder, it can run the test without modifications below.
+1. Download (and unzip) the package (The repo contains some test files. If the script was downloaded to Windows default Downloads folder, it can run the test without modifications below.
 2. Replace (in line-36) `"%userprofile%\\Downloads\\ffmpeg_nvidia_converter\\test"` with the path of the folder containing videos to be converted. It will include subfolders by default. (note: use "\\" between paths)
 Replace (in line-55) `"%userprofile%\\Downloads\\ffmpeg_nvidia_converter\\conversion_log.txt"` with the path where you want to store the conversion log.
 4. Run the script, open a (Powershell) terminal from the Download folder and enter "ffmpeg_nvidia_converter.py" to execute the script. 
