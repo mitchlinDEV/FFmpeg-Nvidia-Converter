@@ -25,7 +25,7 @@ The script walks through each file in the specified folder and its subfolders. I
 
 ## Settings
 
-- Filetypes included by default: avi, mov, ogg, webm, wmv (add/modify as you desire)
+- Filetypes included by default: avi, mov, ogg, webm, wmv (add/modify as you desire, are case sensitive)
 - ffmpeg flags enabled:
   - -hwaccel cuvid: This flag enables CUDA Video Decoder (CUVID), which is a hardware-accelerated video decoder.
   - -hwaccel_output_format cuda: This flag sets the output format for hardware-accelerated decoding to CUDA.
