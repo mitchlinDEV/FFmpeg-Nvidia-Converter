@@ -1,14 +1,25 @@
 import os  # Importing the os module which provides a way of using operating system dependent functionality.
 import subprocess  # Importing the subprocess module which allows you to spawn new processes, connect to their input/output/error pipes, and obtain their return codes.
 from send2trash import send2trash  # Importing the send2trash module which sends files to the Trash (or Recycle Bin) natively and on all platforms.
+import signal  # Import the signal module to handle Ctrl+C
+
+# Function to handle Ctrl+C gracefully
+def handle_interrupt(signum, frame):
+    print("Ctrl+C pressed. Exiting gracefully...")
+    # Perform any necessary cleanup operations here
+    sys.exit(0)  # Exit the script with a success status code
+
+# Register the Ctrl+C signal handler
+signal.signal(signal.SIGINT, handle_interrupt)
 
 # Defining a function to convert videos to mp4 format.
 def convert_videos_to_mp4(folder_path, logfile):
     with open(logfile, "w", encoding="utf-8") as log:  # Opening the log file in write mode.
         for root, dirs, files in os.walk(folder_path):  # Looping through each file in the specified folder and its subfolders.
             for file in files:  # Looping through each file.
-                # Checking if the file ends with any of the specified video formats.
-                if file.endswith((".avi", ".mov", ".ogg", ".webm", ".wmv")):
+                # Converting the file extension to lowercase before checking if it matches the supported video formats.
+                file_lower = file.lower()
+                if file_lower.endswith((".3gp", ".avi", ".flv", ".m4v", ".mkv", ".mov", ".mpg", ".mts", ".ogg", ".rmvb", ".ts", ".vob", ".webm", ".wmv")):
                     input_file = os.path.join(root, file)  # Joining the root and file name to get the full path of the input file.
                     output_file = os.path.join(root, f"{os.path.splitext(file)[0]}.mp4")  # Creating the output file path by replacing the extension of the input file with .mp4.
                     counter = 1  # Initializing a counter for duplicate files.
